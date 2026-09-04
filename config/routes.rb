@@ -1,6 +1,7 @@
 # app/config/routes.rb
 
 Rails.application.routes.draw do
+  get "mypage/show"
   # 商品登録
   get 'products/new'
   post 'products', to: 'products#create'  # 登録
@@ -29,4 +30,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+
+  devise_for :users
+  
 end
