@@ -2,22 +2,15 @@
 
 Rails.application.routes.draw do
   get "mypage/show"
+
+    # ユーザ認証
+  devise_for :users
+
+  # マイページ
+  resources :mypage, only: [:show]
+
   # 商品登録
-  get 'products/new'
-  post 'products', to: 'products#create'  # 登録
-
-  # 商品一覧
-  get 'products', to: 'products#index'
-
-  # 商品詳細
-  get 'products/:id', to: 'products#show', as: 'product'
-
-  # 商品編集
-  get 'products/:id/edit', to: 'products#edit', as: 'edit_product'
-  patch 'products/:id', to: 'products#update'
-
-  # 商品削除
-  delete 'products/:id', to: 'products#destroy', as: 'destroy_product'
+  resources :products
 
   # トップページ
   root to: "homes#top"
@@ -30,7 +23,5 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
-
-  devise_for :users
   
 end
