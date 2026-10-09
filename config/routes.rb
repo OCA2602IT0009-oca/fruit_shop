@@ -1,6 +1,8 @@
 # app/config/routes.rb
 
 Rails.application.routes.draw do
+  get "carts/show"
+  get "carts/index"
   get "orders/new"
   get "mypage/show"
 
