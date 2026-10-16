@@ -1,4 +1,5 @@
 class Product < ApplicationRecord
+    has_many :cart_items
     validates :name, presence: true, uniqueness: true
     validates :price, presence: true
 
@@ -12,5 +13,5 @@ class Product < ApplicationRecord
       photo.variant(resize_to_limit: [150, 150]).processed  # 画像を 150x150 ピクセル以内にリサイズ
     end
     
-    has_many :cart_items
+    
 end

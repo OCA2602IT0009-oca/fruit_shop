@@ -14,6 +14,10 @@ class ApplicationController < ActionController::Base
     root_path
   end
 
+      # 各アクションの前に実行される。
+    # 商品詳細ページ（products#show）を見た場合のみ、セッションに商品IDを記録する
+      before_action :store_recent_product
+
   protected
 
   # サインアップ時に name と admin_flg を許可
