@@ -1,10 +1,13 @@
-  <li>
-    <%= link_to "ログイン", new_user_session_path %>
-  </li>
-  <li>
-    <%= link_to "トップページ", root_path %>
-  </li>
-  <li>
-  <%= link_to "カート", carts_path %>
+<li>
+  <%= link_to "トップページ", root_path %>
 </li>
+<% end %>
+<% if !user_signed_in? %>
+  <li>
+    <%= link_to "カート", carts_path %>
+  </li>
+<% elsif user_signed_in? && !current_user.admin_flg?  %>
+  <li>
+    <%= link_to "カート", cart_path(current_user.cart) %>
+  </li>
 <% end %>

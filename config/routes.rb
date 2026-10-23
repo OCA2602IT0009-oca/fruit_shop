@@ -1,10 +1,11 @@
-# app/config/routes.rb
-
 Rails.application.routes.draw do
   get "carts/show"
   get "carts/index"
   get "orders/new"
   get "mypage/show"
+
+  # ユーザーのカート内の商品操作
+  resources :cart_items, only: [:create, :update, :destroy]
 
     # ユーザ認証
   devise_for :users
